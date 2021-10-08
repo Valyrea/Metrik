@@ -17,7 +17,6 @@ import java.awt.geom.Ellipse2D;
 public class PaintArea  extends Canvas {
 
 
-
     /**
      * This is the constructor for PaintArea which sets the size of the canvas and adds the MouseListener.
      * @param pac Controller class
@@ -30,6 +29,7 @@ public class PaintArea  extends Canvas {
 
     /**
      * This method overrides the paint()-method. It draws circles at given coordinates.
+     * It also gives out the coordinates and distance between the circles and draws a line between them.
      * @param g Graphics
      */
     @Override
@@ -43,7 +43,7 @@ public class PaintArea  extends Canvas {
 
         Ellipse2D ellipse2D;
         ellipse2D = new Ellipse2D.Float(
-                x-25,  y-25,
+                x-(rad),  y-(rad),
                 rad*2, rad*2
         );
         Graphics2D gd2 = (Graphics2D) g;
@@ -89,6 +89,14 @@ public class PaintArea  extends Canvas {
         if (x2 != 0){
             gd2.drawLine(x1, y1, x2, y2);
         }
+
+
+            if (x2 != 0) {
+            double d = Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
+                gd2.drawString("Distance: " + (int)d, 30, 30);
+            }
+
+
 
         gd2.draw(ellipse2D);
 

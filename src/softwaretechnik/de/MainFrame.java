@@ -1,11 +1,7 @@
 package softwaretechnik.de;
 
-import org.w3c.dom.css.RGBColor;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 /**
@@ -53,6 +49,7 @@ public class MainFrame extends Frame {
 
     /**
      * This method initializes a menu bar which changes the background color.
+     * In the menu you can also choose the radius
      */
     private void initializeMenu() {
         MenuBar mbar = new MenuBar();
@@ -104,10 +101,19 @@ public class MainFrame extends Frame {
 
 
     }
+
+    /**
+     * setter Method
+     * @param n parameters for the radius
+     */
     public void setN(int n) {
         this.n = n;
     }
 
+    /**
+     * getter Method
+     * @return n parameters for the radius
+     */
     public static int getN() {
         return n;
     }

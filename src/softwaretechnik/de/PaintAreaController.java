@@ -1,6 +1,5 @@
 package softwaretechnik.de;
 
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -13,9 +12,8 @@ import java.awt.event.MouseListener;
  *
  * This is the PaintAreaController class which implements MouseListener.
  *
- *It contains 3 private static variables.
+ *
  */
-
 public class PaintAreaController implements MouseListener {
 
     private static float x = 0;
@@ -28,34 +26,66 @@ public class PaintAreaController implements MouseListener {
     private static int y2;
 
 
+    /**
+     * setter method for x1
+     * @param x1
+     */
     public void setX1(int x1) {
         PaintAreaController.x1 = x1;
     }
 
+    /**
+     * setter method for x2
+     * @param x2
+     */
     public void setX2(int x2) {
         PaintAreaController.x2 = x2;
     }
 
+    /**
+     * setter method for y1
+     * @param y1
+     */
     public void setY1(int y1) {
         PaintAreaController.y1 = y1;
     }
 
+    /**
+     * setter method for y2
+     * @param y2
+     */
     public void setY2(int y2) {
         PaintAreaController.y2 = y2;
     }
 
+    /**
+     * getter method for x1
+     * @return x1
+     */
     public static int getX1() {
         return x1;
     }
 
+    /**
+     * getter method for x2
+     * @return x2
+     */
     public static int getX2() {
         return x2;
     }
 
+    /**
+     * getter method for y1
+     * @return y1
+     */
     public static int getY1() {
         return y1;
     }
 
+    /**
+     * getter method for y2
+     * @return y2
+     */
     public static int getY2() {
         return y2;
     }
@@ -64,6 +94,7 @@ public class PaintAreaController implements MouseListener {
      * This method is activated as soon as the mouse is clicked.
      * If there are less than 2 clicks, the coordinates get set and calls the paint-method, which draws the shapes.
      * If there are more, the click counter and the coordinates are reset.
+     * The coordinates for the circles are saved in different variables.
      * @param e MouseEvent
      */
     @Override
