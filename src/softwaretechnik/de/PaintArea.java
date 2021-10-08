@@ -2,6 +2,7 @@ package softwaretechnik.de;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 
 /**
  * @author Jana Apfelhofer M27431
@@ -40,8 +41,8 @@ public class PaintArea  extends Canvas {
 
         if(x == 0 && y == 0) { return; }
 
-        Ellipse2D ellipse2D;
-        ellipse2D = new Ellipse2D.Float(
+        Rectangle2D square;
+        square = new Rectangle2D.Float(
                 x-25,  y-25,
                 50.0F, 50.0F
         );
@@ -49,7 +50,7 @@ public class PaintArea  extends Canvas {
 
         gd2.setStroke(new BasicStroke(3.0F));
 
-        gd2.draw(ellipse2D);
+        gd2.draw(square);
 
     }
 
