@@ -1,6 +1,10 @@
 package softwaretechnik.de;
 
+import org.w3c.dom.css.RGBColor;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 /**
@@ -38,6 +42,50 @@ public class MainFrame extends Frame {
 
         addWindowListener(mfc);
         add(_paintArea);
+
+        initializeMenu();
+
+    }
+
+    /**
+     * This method initializes a menu bar which changes the background color.
+     */
+    private void initializeMenu() {
+        MenuBar mbar = new MenuBar();
+
+        Menu mFile = new Menu("Hintergrundfarbe");
+        MenuItem blue = new MenuItem("blau");
+        MenuItem pink = new MenuItem("rosa");
+        MenuItem violet = new MenuItem("violett");
+        MenuItem white = new MenuItem("weiß");
+
+        mFile.add(blue);
+        mFile.add(pink);
+        mFile.add(violet);
+        mFile.add(white);
+
+        mbar.add(mFile);
+        setMenuBar(mbar);
+
+        blue.addActionListener(e -> {
+
+            _paintArea.setBackground(new Color(130,173,218));
+            _paintArea.repaint();
+        });
+        pink.addActionListener(e -> {
+            _paintArea.setBackground(new Color(142,28,98));
+            _paintArea.repaint();
+        });
+        violet.addActionListener(e -> {
+            _paintArea.setBackground(new Color (82, 43, 106));
+            _paintArea.repaint();
+        });
+        white.addActionListener(e -> {
+            _paintArea.setBackground(Color.white);
+            _paintArea.repaint();
+        });
+
+
 
     }
 
