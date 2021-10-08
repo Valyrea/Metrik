@@ -48,6 +48,8 @@ public class PaintArea  extends Canvas {
         Graphics2D gd2 = (Graphics2D) g;
 
         gd2.setStroke(new BasicStroke(3.0F));
+        gd2.drawString("(" + x + ", " + y + ")", x-33, y+40);
+
 
         gd2.draw(ellipse2D);
 
