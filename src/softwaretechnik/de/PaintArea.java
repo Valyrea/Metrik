@@ -16,7 +16,10 @@ import java.awt.geom.Ellipse2D;
 
 public class PaintArea  extends Canvas {
 
-
+    float x1 = 0;
+    float x2 = 0;
+    float y1 = 0;
+    float y2 = 0;
 
     /**
      * This is the constructor for PaintArea which sets the size of the canvas and adds the MouseListener.
@@ -80,6 +83,20 @@ public class PaintArea  extends Canvas {
         }
 
         gd2.drawString("(" + x + ", " + y + ")", x-var1, y+var2);
+
+
+        int x1 = PaintAreaController.getX1();
+        int x2 = PaintAreaController.getX2();
+        int y1 = PaintAreaController.getY1();
+        int y2 = PaintAreaController.getY2();
+
+            if (x2 != 0) {
+            double d = Math.sqrt(Math.pow((x1 - x2), 2) + Math.pow((y1 - y2), 2));
+                gd2.drawString("Distance: " + (int)d, 30, 30);
+            }
+
+
+
 
 
         gd2.draw(ellipse2D);
