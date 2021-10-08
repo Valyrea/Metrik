@@ -2,6 +2,7 @@ package softwaretechnik.de;
 
 import org.w3c.dom.css.RGBColor;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +22,9 @@ public class MainFrame extends Frame {
 
     private static PaintAreaController _paController = new PaintAreaController();
     private static PaintArea _paintArea = new PaintArea(_paController);
+
+    private static int n = 20;
+
 
 
     /**
@@ -59,34 +63,53 @@ public class MainFrame extends Frame {
         MenuItem violet = new MenuItem("violett");
         MenuItem white = new MenuItem("weiß");
 
+        MenuItem radius = new MenuItem("Radius");
+
         mFile.add(blue);
         mFile.add(pink);
         mFile.add(violet);
         mFile.add(white);
 
+        Menu mSettings = new Menu("Settings");
+        mSettings.add(radius);
+
         mbar.add(mFile);
+        mbar.add(mSettings);
         setMenuBar(mbar);
 
         blue.addActionListener(e -> {
 
             _paintArea.setBackground(new Color(130,173,218));
-            _paintArea.repaint();
         });
         pink.addActionListener(e -> {
             _paintArea.setBackground(new Color(142,28,98));
-            _paintArea.repaint();
         });
         violet.addActionListener(e -> {
             _paintArea.setBackground(new Color (82, 43, 106));
-            _paintArea.repaint();
         });
         white.addActionListener(e -> {
             _paintArea.setBackground(Color.white);
-            _paintArea.repaint();
         });
 
 
+        radius.addActionListener(e -> {
+            TextField tex = new TextField();
+            Integer[] options = {20, 30, 40, 50, 60};
+            n = (Integer)JOptionPane.showInputDialog(null, "Choose the Radius:",
+                    "Radius", JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+            setN(n);
 
+
+        });
+
+
+    }
+    public void setN(int n) {
+        this.n = n;
+    }
+
+    public static int getN() {
+        return n;
     }
 
 }

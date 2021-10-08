@@ -37,18 +37,49 @@ public class PaintArea  extends Canvas {
 
         float x = PaintAreaController.getX();
         float y = PaintAreaController.getY();
+        int rad = MainFrame.getN();
 
         if(x == 0 && y == 0) { return; }
 
         Ellipse2D ellipse2D;
         ellipse2D = new Ellipse2D.Float(
                 x-25,  y-25,
-                50.0F, 50.0F
+                rad*2, rad*2
         );
         Graphics2D gd2 = (Graphics2D) g;
 
         gd2.setStroke(new BasicStroke(3.0F));
-        gd2.drawString("(" + x + ", " + y + ")", x-33, y+40);
+
+        int var1;
+        int var2;
+
+        switch (rad) {
+            case 20:
+                var1 = 40;
+                var2 = 35;
+                break;
+            case 30:
+                var1 = 33;
+                var2 = 57;
+                break;
+            case 40:
+                var1 = 23;
+                var2 = 73;
+                break;
+            case 50:
+                var1 = 11;
+                var2 = 92;
+                break;
+            case 60:
+                var1 = 3;
+                var2 = 111;
+                break;
+            default:
+                var1 = 40;
+                var2 = 35;
+        }
+
+        gd2.drawString("(" + x + ", " + y + ")", x-var1, y+var2);
 
 
         gd2.draw(ellipse2D);
