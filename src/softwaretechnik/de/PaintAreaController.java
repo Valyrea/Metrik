@@ -22,6 +22,44 @@ public class PaintAreaController implements MouseListener {
     private static float y = 0;
     private int clicks = 0;
 
+    private static int x1;
+    private static int x2;
+    private static int y1;
+    private static int y2;
+
+
+    public void setX1(int x1) {
+        PaintAreaController.x1 = x1;
+    }
+
+    public void setX2(int x2) {
+        PaintAreaController.x2 = x2;
+    }
+
+    public void setY1(int y1) {
+        PaintAreaController.y1 = y1;
+    }
+
+    public void setY2(int y2) {
+        PaintAreaController.y2 = y2;
+    }
+
+    public static int getX1() {
+        return x1;
+    }
+
+    public static int getX2() {
+        return x2;
+    }
+
+    public static int getY1() {
+        return y1;
+    }
+
+    public static int getY2() {
+        return y2;
+    }
+
     /**
      * This method is activated as soon as the mouse is clicked.
      * If there are less than 2 clicks, the coordinates get set and calls the paint-method, which draws the shapes.
@@ -37,10 +75,25 @@ public class PaintAreaController implements MouseListener {
 
             y = e.getY();
             setY(y);
+
+            if (clicks == 0) {
+                x1 = e.getX();
+                setX1(x1);
+                y1 = e.getY();
+                setY1(y1);
+
+            } else if (clicks == 1){
+                x2 = e.getX();
+                setX2(x2);
+
+                y2 = e.getY();
+                setY2(y2);
+            }
             MainFrame.get_paintArea().paint(MainFrame.get_paintArea().getGraphics());
             clicks++;
         } else {
             x = y = 0;
+            x1 = x2 = y1 = y2 = 0;
             MainFrame.get_paintArea().repaint();
             clicks = 0;
         }

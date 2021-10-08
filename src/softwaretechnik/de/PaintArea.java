@@ -81,6 +81,14 @@ public class PaintArea  extends Canvas {
 
         gd2.drawString("(" + x + ", " + y + ")", x-var1, y+var2);
 
+        int x1 = PaintAreaController.getX1();
+        int x2 = PaintAreaController.getX2();
+        int y1 = PaintAreaController.getY1();
+        int y2 = PaintAreaController.getY2();
+
+        if (x2 != 0){
+            gd2.drawLine(x1, y1, x2, y2);
+        }
 
         gd2.draw(ellipse2D);
 
